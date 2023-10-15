@@ -14,6 +14,8 @@ import (
 func main() {
 	db, err := sql.Open("mysql", "root:root@tcp(host.docker.internal:3306)/products")
 
+	db.Exec("create table products (id varchar(255), name varchar(255), price integer);")
+
 	if err != nil {
 		panic(err)
 	}
