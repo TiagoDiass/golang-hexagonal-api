@@ -36,7 +36,7 @@ $ git clone https://github.com/TiagoDiass/golang-hexagonal-api.git
 $ cd golang-hexagonal-api
 
 # Install the dependencies
-$ TODO:
+$ go mod download
 ```
 
 ### Application
@@ -44,12 +44,17 @@ $ TODO:
 To run the application, just follow the steps below (assuming you have followed the first steps above)
 
 ```
-# Start the docker container
-$ TODO:
+# Start the Docker container
+$ docker compose up -d
+
+# Enter in the app directory inside Docker container
+$ docker compose exec goapp bash
 
 # Start the app
 $ go run cmd/app/main.go
 ```
+
+After followings these steps, you'll have the backend server running in your `localhost:8000`. If you want to stop the application you can just press `CTRL+C` in your terminal where you started the app.
 
 ### Tasks
 
