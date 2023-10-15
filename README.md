@@ -1,6 +1,6 @@
 # Go Hexagonal API
 
-This is a simple REST API built with the Go language, Hexagonal Architecture, MySQL and Docker.
+This is a simple REST API built with the Go programming language, Hexagonal Architecture, MySQL and Docker.
 
 ## Endpoints
 
@@ -18,7 +18,7 @@ In this API you'll find endpoints related to a CRUD of **products**
 
 If you want to run the application in your computer, follow these steps;
 
-First of all, you'll need to have those tools installed on your computer
+First of all, you'll need to have these tools installed on your computer
 
 - [Git](https://git-scm.com/)
 - [Go](https://go.dev/)
@@ -55,3 +55,4 @@ $ go run cmd/app/main.go
 
 - [ ] Make the documentation of the endpoints a table in this README
 - [ ] Create a swagger for the API endpoints
+- [ ] Add unit tests
