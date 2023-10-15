@@ -33,7 +33,7 @@ func (r *ProductRepositoryMysql) FindAll() ([]*entity.Product, error) {
 	if err != nil {
 		return nil, err
 	}
-	rows.Close()
+	defer rows.Close()
 
 	var products []*entity.Product
 
