@@ -11,9 +11,9 @@ type CreateProductInputDTO struct {
 }
 
 type CreateProductOutputDTO struct {
-	ID    string
-	Name  string
-	Price int
+	ID    string `json:"id"`
+	Name  string `json:"name"`
+	Price int    `json:"price"`
 }
 
 type CreateProductUsecase struct {

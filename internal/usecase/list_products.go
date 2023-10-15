@@ -3,9 +3,9 @@ package usecase
 import "github.com/TiagoDiass/golang-hexagonal-api/internal/repository"
 
 type ListProductsOutputDTO struct {
-	ID    string
-	Name  string
-	Price int
+	ID    string `json:"id"`
+	Name  string `json:"name"`
+	Price int    `json:"price"`
 }
 
 type ListProductsUsecase struct {
