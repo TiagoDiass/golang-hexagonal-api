@@ -6,8 +6,8 @@ import (
 )
 
 type CreateProductInputDTO struct {
-	Name  string
-	Price int
+	Name  string `json:"name"`
+	Price int    `json:"price"`
 }
 
 type CreateProductOutputDTO struct {
