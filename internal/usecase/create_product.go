@@ -26,7 +26,7 @@ func NewCreateProductUsecase(productRepository repository.ProductRepository) *Cr
 	}
 }
 
-func (u CreateProductUsecase) Execute(input CreateProductInputDTO) (*CreateProductOutputDTO, error) {
+func (u *CreateProductUsecase) Execute(input CreateProductInputDTO) (*CreateProductOutputDTO, error) {
 	product := entity.NewProduct(input.Name, input.Price)
 
 	err := u.ProductRepository.Create(product)
