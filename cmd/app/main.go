@@ -8,6 +8,7 @@ import (
 	"github.com/TiagoDiass/golang-hexagonal-api/internal/infra/web"
 	"github.com/TiagoDiass/golang-hexagonal-api/internal/usecase"
 	"github.com/go-chi/chi/v5"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
