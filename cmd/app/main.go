@@ -25,17 +25,20 @@ func main() {
 	createProductUsecase := usecase.NewCreateProductUsecase(productRepository)
 	listProductsUsecase := usecase.NewListProductsUsecase(productRepository)
 	deleteProductUsecase := usecase.NewDeleteProductUsecase(productRepository)
+	findProductByIdUsecase := usecase.NewFindProductByIdUsecase(productRepository)
 
 	productHandlers := web.NewProductHandlers(
 		createProductUsecase,
 		listProductsUsecase,
 		deleteProductUsecase,
+		findProductByIdUsecase,
 	)
 
 	router := chi.NewRouter()
 
 	router.Get("/products", productHandlers.ListProductsHandler)
 	router.Post("/products", productHandlers.CreateProductHandler)
+	router.Get("/products/{productId}", productHandlers.FindProductByIdHandler)
 	router.Delete("/products/{productId}", productHandlers.DeleteProductHandler)
 
 	http.ListenAndServe(":8000", router)
