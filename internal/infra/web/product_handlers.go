@@ -5,17 +5,28 @@ import (
 	"net/http"
 
 	"github.com/TiagoDiass/golang-hexagonal-api/internal/usecase"
+	"github.com/go-chi/chi/v5"
 )
 
 type ProductHandlers struct {
 	CreateProductUsecase *usecase.CreateProductUsecase
 	ListProductsUsecase  *usecase.ListProductsUsecase
+	DeleteProductUsecase *usecase.DeleteProductUsecase
 }
 
-func NewProductHandlers(createProductUsecase *usecase.CreateProductUsecase, listProductsUsecase *usecase.ListProductsUsecase) *ProductHandlers {
+type ErrorResponse struct {
+	Error string `json:"error"`
+}
+
+func NewProductHandlers(
+	createProductUsecase *usecase.CreateProductUsecase,
+	listProductsUsecase *usecase.ListProductsUsecase,
+	deleteProductUsecase *usecase.DeleteProductUsecase,
+) *ProductHandlers {
 	return &ProductHandlers{
 		CreateProductUsecase: createProductUsecase,
 		ListProductsUsecase:  listProductsUsecase,
+		DeleteProductUsecase: deleteProductUsecase,
 	}
 }
 
@@ -51,4 +62,29 @@ func (h *ProductHandlers) ListProductsHandler(response http.ResponseWriter, requ
 	response.Header().Set("Content-Type", "application/json")
 	response.WriteHeader(http.StatusOK)
 	json.NewEncoder(response).Encode(output)
+}
+
+func (h *ProductHandlers) DeleteProductHandler(response http.ResponseWriter, request *http.Request) {
+	productId := chi.URLParam(request, "productId")
+
+	var input usecase.DeleteProductInputDTO = usecase.DeleteProductInputDTO{
+		ID: productId,
+	}
+
+	err := h.DeleteProductUsecase.Execute(input)
+
+	if err != nil {
+		errorResponse := ErrorResponse{
+			Error: err.Error(),
+		}
+
+		response.Header().Set("Content-Type", "application/json")
+		response.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(response).Encode(errorResponse)
+
+		return
+	}
+
+	response.Header().Set("Content-Type", "application/json")
+	response.WriteHeader(http.StatusNoContent)
 }
