@@ -106,6 +106,5 @@ After followings these steps, you'll have the backend server running in your `lo
 
 ### Tasks
 
-- [ ] Make the documentation of the endpoints a table in this README
 - [ ] Create a swagger for the API endpoints
 - [ ] Add unit tests
