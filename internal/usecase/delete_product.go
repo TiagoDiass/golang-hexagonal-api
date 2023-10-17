@@ -7,7 +7,7 @@ import (
 )
 
 type DeleteProductInputDTO struct {
-	ID string `json:"id"`
+	ID string
 }
 
 type DeleteProductUsecase struct {
