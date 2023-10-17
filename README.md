@@ -7,12 +7,10 @@ This is a simple REST API built with the Go programming language, Hexagonal Arch
 In this API you'll find endpoints related to a CRUD of **products**
 
 - **GET** - GetProducts - Path: "_/products_"
-<!-- - **GET** - GetProductById - Path: "_/products/{id}_" -->
+- **GET** - GetProductById - Path: "_/products/{id}_"
 - **POST** - CreateProduct - Path: "_/products_"
-<!-- - **PUT** - UpdateProduct - Path: "_/products/{id}_"
-- **DELETE** - DeleteProduct - Path: "_/products/{id}_" -->
-
-**PS:** for now there's only the list and create endpoint, the other ones are in development.
+<!-- - **PUT** - UpdateProduct - Path: "_/products/{id}_" -->
+- **DELETE** - DeleteProduct - Path: "_/products/{id}_"
 
 ## :arrow_forward: How to run
 
