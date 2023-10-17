@@ -2,15 +2,63 @@
 
 This is a simple REST API built with the Go programming language, Hexagonal Architecture, MySQL and Docker.
 
+<p align="left">
+  <img alt="Repo's top languages" src="https://img.shields.io/static/v1?label=Main%20technology&message=Go&style=for-the-badge&color=007D9C&labelColor=000000">
+</p>
+
 ## Endpoints
 
 In this API you'll find endpoints related to a CRUD of **products**
 
-- **GET** - GetProducts - Path: "_/products_"
-- **GET** - GetProductById - Path: "_/products/{id}_"
-- **POST** - CreateProduct - Path: "_/products_"
-<!-- - **PUT** - UpdateProduct - Path: "_/products/{id}_" -->
-- **DELETE** - DeleteProduct - Path: "_/products/{id}_"
+<table>
+  <tr>
+    <th>Request name</th>
+    <th>Method</th>
+    <th>Endpoint</th>
+    <th>Request body</th>
+    <th>Returns</th>
+  </tr>
+  
+  <tr>
+    <td>GetProducts</td>
+    <td>GET</td>
+    <td><i>/products</i></td>
+    <td>No body</td>
+    <td>All products</td>
+  </tr>
+
+  <tr>
+    <td>GetProductById</td>
+    <td>GET</td>
+    <td><i>/products/{productId}</i></td>
+    <td>No body</td>
+    <td>A single product</td>
+  </tr>
+
+   <tr>
+    <td>CreateProduct</td>
+    <td>POST</td>
+    <td><i>/products</i></td>
+    <td>JSON with the properties <br /> <code>name: string, price: integer</code></td>
+    <td>The created product</td>
+  </tr>
+
+  <tr>
+    <td>DeleteProduct</td>
+    <td>DELETE</td>
+    <td><i>/products/{productId}</i></td>
+    <td>No body</td>
+    <td>Nothing</td>
+  </tr>
+</table>
+
+<!-- ## Things I used
+
+- Go
+- MySQL
+- Docker
+- Chi (a router for building Go HTTP services)
+- Hexagonal Architecture -->
 
 ## :arrow_forward: How to run
 
