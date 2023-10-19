@@ -26,6 +26,12 @@ func TestShouldDeleteProductSuccessfully(t *testing.T) {
 	if err != nil {
 		t.Error("Expected not to receive an error from DeleteProductUsecase")
 	}
+
+	product, _ := productRepository.FindById("fake-product-id")
+
+	if product != nil {
+		t.Error("Expected product to be deleted, but it was still found")
+	}
 }
 
 func TestShouldReturnErrorWhenProductDoesNotExistCase(t *testing.T) {
