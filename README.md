@@ -107,4 +107,4 @@ After followings these steps, you'll have the backend server running in your `lo
 ### Tasks
 
 - [ ] Create a swagger for the API endpoints
-- [ ] Add unit tests
+- [x] Add unit tests [still adding]
