@@ -9,6 +9,8 @@ import (
 )
 
 func TestShouldFindProductByIdSuccessfully(t *testing.T) {
+	t.Parallel()
+
 	productRepository := test.NewInMemoryProductRepository()
 	findProductByIdUsecase := NewFindProductByIdUsecase(productRepository)
 
