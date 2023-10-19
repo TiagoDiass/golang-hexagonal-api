@@ -14,7 +14,12 @@ import (
 func main() {
 	db, err := sql.Open("mysql", "root:root@tcp(host.docker.internal:3306)/products")
 
-	db.Exec("create table products (id varchar(255), name varchar(255), price integer);")
+	db.Exec(`create table if not exists products (
+		id varchar(255), 
+		name varchar(255), 
+		price integer,
+		PRIMARY KEY (id)
+	);`)
 
 	if err != nil {
 		panic(err)

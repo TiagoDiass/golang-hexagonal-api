@@ -47,6 +47,7 @@ func (h *ProductHandlers) CreateProductHandler(response http.ResponseWriter, req
 
 	if err != nil {
 		response.WriteHeader(http.StatusInternalServerError)
+		return
 	}
 
 	response.Header().Set("Content-Type", "application/json")
