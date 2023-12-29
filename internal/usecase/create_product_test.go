@@ -3,7 +3,6 @@ package usecase
 import (
 	"testing"
 
-	"github.com/TiagoDiass/golang-hexagonal-api/internal/entity"
 	"github.com/TiagoDiass/golang-hexagonal-api/internal/test"
 	"github.com/TiagoDiass/golang-hexagonal-api/internal/test/assertions"
 )
@@ -13,12 +12,6 @@ func TestShouldCreateProductSuccessfully(t *testing.T) {
 
 	productRepository := test.NewInMemoryProductRepository()
 	createProductUsecase := NewCreateProductUsecase(productRepository)
-
-	productRepository.Create(&entity.Product{
-		ID:    "fake-product-id",
-		Name:  "fake-product",
-		Price: 100,
-	})
 
 	input := CreateProductInputDTO{
 		Name:  "fake-product-name",
